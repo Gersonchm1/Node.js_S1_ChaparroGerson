@@ -1,14 +1,14 @@
-const prompt= require('prompt-sync')();//Entradas por consola
-const path = "./db.json";//Direccionar hacia la base de datos
-const fs= require('fs');//Manejo de Archivos Locales
+const prompt= require('prompt-sync')();
+const path = "./db.json";
+const fs= require('fs');
 
-//Modularización de Carga de la Data
+
 function loadData(){
     if(!fs.existsSync(path)){
         fs.writeFileSync(path,"[]");
-    };// Creo el archivo con data si no existe.
-    const data = fs.readFileSync(path);//Cargo y Guardo la data en una variable
-    return JSON.parse(data);//Retorno la data en formato JSON
+    };
+    const data = fs.readFileSync(path);
+    return JSON.parse(data);
 }
 function saveData(data){
     fs.writeFileSync(path,JSON.stringify(data));
